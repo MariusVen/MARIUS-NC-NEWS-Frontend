@@ -1,7 +1,13 @@
+import NavigationBar from "./NavigationBar";
+import { Link } from "react-router-dom";
+
 export default function Header() {
   return (
     <div>
-      <h1>NC News </h1>
+      <Link to="/">
+        <h1>NC News </h1>
+      </Link>
+      <NavigationBar />
     </div>
   );
 }
