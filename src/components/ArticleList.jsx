@@ -6,13 +6,16 @@ import ArticleCard from "./ArticleCard";
 export default function ArticleList() {
   const { topic } = useParams();
   const [articles, setArticles] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetchArticles(topic).then((articlesFromApi) =>
-      setArticles(articlesFromApi)
-    );
+    fetchArticles(topic).then((articlesFromApi) => {
+      setArticles(articlesFromApi);
+      setIsLoading(false);
+    });
   }, [topic]);
 
+  if (isLoading) return <p>Loading...</p>;
   return (
     <div>
       {articles.map((article) => {
