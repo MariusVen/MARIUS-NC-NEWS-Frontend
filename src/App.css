@@ -1,8 +1,22 @@
 .App {
   text-align: center;
+  width: 40%;
+  margin: auto;
 }
 .article_list {
-  border-style: double;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  background-color: rgb(237, 245, 251);
+  border-style: outset;
+  padding: 10px;
+  margin: 10px;
+}
+
+.comment_count {
+  text-align: right;
+  margin-right: 20px;
+}
+
+@media screen and (max-width: 800px) {
+  .App {
+    width: 90%;
+  }
 }
