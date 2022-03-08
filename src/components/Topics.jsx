@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { fetchTopics } from "../api";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Topics() {
   const [topics, setTopics] = useState([]);
@@ -10,22 +10,11 @@ export default function Topics() {
   }, []);
   return (
     <div>
-      <p>
-        {topics.map((topic) => (
-          <Link key={topic.slug} to={`/articles/${topic.slug}`}>
-            {topic.slug}
-          </Link>
-
-          // <button
-          //   onClick={() => {
-          //     setTopic(topic.slug);
-          //   }}
-          //   key={topic.slug}
-          // >
-          //   {topic.slug}
-          // </button>
-        ))}
-      </p>
+      {topics.map((topic) => (
+        <button key={topic.slug}>
+          <Link to={`/topics/${topic.slug}`}>{topic.slug}</Link>
+        </button>
+      ))}
     </div>
   );
 }
