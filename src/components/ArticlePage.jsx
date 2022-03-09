@@ -7,7 +7,7 @@ import Comments from "./Comments";
 export default function ArticlePage() {
   const { article_id } = useParams();
   const [article, setArticle] = useState([]);
-  // const [article_id2, setArticle_id2] = useState([]);
+  const [article_id_for_comments, setArticle_id_for_comments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -54,16 +54,14 @@ export default function ArticlePage() {
       </div>
       <p>{article.body}</p>
       <div>
-        <b>Comments: </b>
-        {article.comment_count}
-        {/* <button onClick={() => setArticle_id2(article.article_id)}>
-          <Link to={`/articles/${article.article_id}/comments`}>
-            
-          </Link>
-          
-        </button> */}
+        <button onClick={() => setArticle_id_for_comments(article.article_id)}>
+          <Link to={`/articles/${article.article_id}/comments`}></Link>
+          <b>Comments: </b>
+          {article.comment_count}
+        </button>
         <b> Votes:</b> <b>&#8679;</b> {article.votes} <b>&#8681;</b>
-        {/* <Comments article_id2={article_id2} /> */}
+        {console.log(article.article_id)}
+        <Comments article_id={article_id_for_comments} />
       </div>
     </div>
   );
