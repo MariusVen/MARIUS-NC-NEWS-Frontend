@@ -11,7 +11,7 @@ export default function Topics() {
   return (
     <div>
       {topics.map((topic) => (
-        <button key={topic.slug}>
+        <button key={topic.slug} onClick={() => window.location.reload(false)}>
           <Link to={`/topics/${topic.slug}`}>{topic.slug}</Link>
         </button>
       ))}

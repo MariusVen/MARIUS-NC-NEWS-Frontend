@@ -1,7 +1,9 @@
 import "./App.css";
 import Header from "./components/Header";
 import ArticleList from "./components/ArticleList";
+import Comments from "./components/Comments";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ArticlePage from "./components/ArticlePage";
 
 function App() {
   return (
@@ -12,6 +14,11 @@ function App() {
           <Route exact path="/" element={<ArticleList />} />
           <Route path="/topics" element={<ArticleList />} />
           <Route path="/topics/:topic" element={<ArticleList />} />
+          <Route path="/articles/:article_id" element={<ArticlePage />} />
+          <Route
+            path="/articles/:article_id/comments"
+            element={<ArticlePage />}
+          />
         </Routes>
       </div>
     </BrowserRouter>

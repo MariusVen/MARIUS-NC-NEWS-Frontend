@@ -20,3 +20,10 @@
     width: 90%;
   }
 }
+.article_page_body {
+  text-align: justify;
+}
+
+h1 {
+  text-align: center;
+}
