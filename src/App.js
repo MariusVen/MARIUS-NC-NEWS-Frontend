@@ -1,26 +1,35 @@
 import "./App.css";
 import Header from "./components/Header";
 import ArticleList from "./components/ArticleList";
-import Comments from "./components/Comments";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ArticlePage from "./components/ArticlePage";
+import ToggleUser from "./components/ToggleUser";
+import { useState } from "react";
+import { UserContext } from "./components/User";
 
 function App() {
+  const [usersFromApps, setUsersFromApps] = useState();
+  console.log(usersFromApps, "<---------------users From Apps");
+
+  // const user2 = "test5";
   return (
     <BrowserRouter>
-      <div className="App">
-        <Header />
-        <Routes>
-          <Route exact path="/" element={<ArticleList />} />
-          <Route path="/topics" element={<ArticleList />} />
-          <Route path="/topics/:topic" element={<ArticleList />} />
-          <Route path="/articles/:article_id" element={<ArticlePage />} />
-          <Route
-            path="/articles/:article_id/comments"
-            element={<ArticlePage showComments={true} />}
-          />
-        </Routes>
-      </div>
+      <UserContext.Provider value={{ usersFromApps, setUsersFromApps }}>
+        <div className="App">
+          <Header />
+          <ToggleUser />
+          <Routes>
+            <Route exact path="/" element={<ArticleList />} />
+            <Route path="/topics" element={<ArticleList />} />
+            <Route path="/topics/:topic" element={<ArticleList />} />
+            <Route path="/articles/:article_id" element={<ArticlePage />} />
+            <Route
+              path="/articles/:article_id/comments"
+              element={<ArticlePage showComments={true} />}
+            />
+          </Routes>
+        </div>
+      </UserContext.Provider>
     </BrowserRouter>
   );
 }
