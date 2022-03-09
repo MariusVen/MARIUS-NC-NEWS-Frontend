@@ -15,3 +15,17 @@ export const fetchTopics = () => {
     return data.topics;
   });
 };
+
+export const fetchArticle = (article_id) => {
+  return axios.get(`${baseURL}/articles/${article_id}`).then(({ data }) => {
+    return data.article;
+  });
+};
+
+export const fetchComments = (article_id) => {
+  return axios
+    .get(`${baseURL}/articles/${article_id}/comments`)
+    .then(({ data }) => {
+      return data.comments;
+    });
+};
