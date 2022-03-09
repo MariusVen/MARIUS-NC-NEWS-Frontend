@@ -4,12 +4,23 @@ import { fetchArticle } from "../api";
 import { Link } from "react-router-dom";
 import Comments from "./Comments";
 
-export default function ArticlePage() {
+export default function ArticlePage({ showComments }) {
   const { article_id } = useParams();
   const [article, setArticle] = useState([]);
-  const [article_id_for_comments, setArticle_id_for_comments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  if (showComments === undefined) {
+    showComments = false;
+  }
+
+  const [isCommentVisible, setIsCommentVisible] = useState(showComments);
+
+  const showCommentsFunc = () => {
+    if (isCommentVisible === true) {
+      return <Comments article_id={article_id} />;
+    }
+  };
 
   let date = article.created_at;
 
@@ -54,14 +65,17 @@ export default function ArticlePage() {
       </div>
       <p>{article.body}</p>
       <div>
-        <button onClick={() => setArticle_id_for_comments(article.article_id)}>
+        <button
+          onClick={() => {
+            setIsCommentVisible(!isCommentVisible);
+          }}
+        >
           <Link to={`/articles/${article.article_id}/comments`}></Link>
           <b>Comments: </b>
           {article.comment_count}
         </button>
         <b> Votes:</b> <b>&#8679;</b> {article.votes} <b>&#8681;</b>
-        {console.log(article.article_id)}
-        <Comments article_id={article_id_for_comments} />
+        {showCommentsFunc()}
       </div>
     </div>
   );

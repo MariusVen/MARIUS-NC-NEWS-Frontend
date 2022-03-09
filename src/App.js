@@ -17,7 +17,7 @@ function App() {
           <Route path="/articles/:article_id" element={<ArticlePage />} />
           <Route
             path="/articles/:article_id/comments"
-            element={<ArticlePage />}
+            element={<ArticlePage showComments={true} />}
           />
         </Routes>
       </div>
