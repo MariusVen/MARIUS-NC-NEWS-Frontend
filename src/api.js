@@ -29,3 +29,7 @@ export const fetchComments = (article_id) => {
       return data.comments;
     });
 };
+
+export const deleteComment = (comment_id) => {
+  return axios.delete(`${baseURL}/comments/${comment_id}`);
+};

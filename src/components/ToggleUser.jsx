@@ -3,7 +3,6 @@ import { UserContext } from "./User";
 
 export default function ToggleUser() {
   const { usersFromApps, setUsersFromApps } = useContext(UserContext);
-  console.log(usersFromApps, "User4-<,,,,,,,,");
   const [user, setUser] = useState("");
 
   if (usersFromApps === undefined || usersFromApps === "") {

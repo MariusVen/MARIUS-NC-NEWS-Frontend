@@ -8,8 +8,7 @@ import { useState } from "react";
 import { UserContext } from "./components/User";
 
 function App() {
-  const [usersFromApps, setUsersFromApps] = useState();
-  console.log(usersFromApps, "<---------------users From Apps");
+  const [usersFromApps, setUsersFromApps] = useState("tickle122");
 
   // const user2 = "test5";
   return (
