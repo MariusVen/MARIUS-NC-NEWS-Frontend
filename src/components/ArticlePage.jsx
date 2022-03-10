@@ -1,15 +1,32 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { fetchArticle } from "../api";
+import { fetchArticle, updateVote } from "../api";
 import { Link } from "react-router-dom";
 import Comments from "./Comments";
 
-export default function ArticlePage() {
+export default function ArticlePage({ showComments }) {
   const { article_id } = useParams();
   const [article, setArticle] = useState([]);
-  // const [article_id2, setArticle_id2] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [vote, setVote] = useState();
+  const [tempId, setTempId] = useState();
+
+  if (showComments === undefined) {
+    showComments = false;
+  }
+
+  const [isCommentVisible, setIsCommentVisible] = useState(true);
+
+  const showCommentsFunc = () => {
+    if (isCommentVisible === true) {
+      return <Comments article_id={article_id} />;
+    }
+  };
+
+  const updateVotesLocally = (voteCrement) => {
+    setVote(voteCrement + vote);
+  };
 
   let date = article.created_at;
 
@@ -22,6 +39,8 @@ export default function ArticlePage() {
       .then((articleFromApi) => {
         setArticle(articleFromApi);
         setIsLoading(false);
+        console.log(articleFromApi.votes);
+        setVote(articleFromApi.votes);
       })
       .catch(
         ({
@@ -54,16 +73,34 @@ export default function ArticlePage() {
       </div>
       <p>{article.body}</p>
       <div>
-        <b>Comments: </b>
-        {article.comment_count}
-        {/* <button onClick={() => setArticle_id2(article.article_id)}>
-          <Link to={`/articles/${article.article_id}/comments`}>
-            
-          </Link>
-          
-        </button> */}
-        <b> Votes:</b> <b>&#8679;</b> {article.votes} <b>&#8681;</b>
-        {/* <Comments article_id2={article_id2} /> */}
+        <button
+          onClick={() => {
+            setIsCommentVisible(!isCommentVisible);
+          }}
+        >
+          <Link to={`/articles/${article.article_id}/comments`}></Link>
+          <b>Comments: </b>
+          {article.comment_count}
+        </button>
+        <b> Votes:</b>{" "}
+        <button
+          onClick={() => {
+            updateVote(article.article_id, 1);
+            updateVotesLocally(1);
+          }}
+        >
+          &#8679;
+        </button>
+        {vote}
+        <button
+          onClick={() => {
+            updateVote(article.article_id, -1);
+            updateVotesLocally(-1);
+          }}
+        >
+          &#8681;
+        </button>
+        {showCommentsFunc()}
       </div>
     </div>
   );
