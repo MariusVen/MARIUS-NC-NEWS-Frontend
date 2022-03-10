@@ -9,6 +9,8 @@ export default function ArticlePage({ showComments }) {
   const [article, setArticle] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [vote, setVote] = useState();
+  const [tempId, setTempId] = useState();
 
   if (showComments === undefined) {
     showComments = false;
@@ -22,6 +24,10 @@ export default function ArticlePage({ showComments }) {
     }
   };
 
+  const updateVotesLocally = (voteCrement) => {
+    setVote(voteCrement + vote);
+  };
+
   let date = article.created_at;
 
   if (date !== undefined) {
@@ -33,6 +39,8 @@ export default function ArticlePage({ showComments }) {
       .then((articleFromApi) => {
         setArticle(articleFromApi);
         setIsLoading(false);
+        console.log(articleFromApi.votes);
+        setVote(articleFromApi.votes);
       })
       .catch(
         ({
@@ -78,16 +86,16 @@ export default function ArticlePage({ showComments }) {
         <button
           onClick={() => {
             updateVote(article.article_id, 1);
-            window.location.reload(false);
+            updateVotesLocally(1);
           }}
         >
           &#8679;
-        </button>{" "}
-        {article.votes}{" "}
+        </button>
+        {vote}
         <button
           onClick={() => {
             updateVote(article.article_id, -1);
-            window.location.reload(false);
+            updateVotesLocally(-1);
           }}
         >
           &#8681;

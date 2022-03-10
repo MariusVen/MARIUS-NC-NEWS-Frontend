@@ -7,7 +7,7 @@ export default function Comments({ article_id }) {
   const [comments, setComments] = useState([]);
   const [isPostCommentVisible, setIsPostCommentVisible] = useState(false);
   const { usersFromApps } = useContext(UserContext);
-
+  console.log(comments);
   useEffect(() => {
     fetchComments(Number(article_id)).then((articleFromApi) => {
       setComments(articleFromApi);
@@ -19,9 +19,13 @@ export default function Comments({ article_id }) {
       return (
         <button
           onClick={() => {
+            console.log(comment_id);
             deleteComment(comment_id);
-            alert(`Dear ${usersFromApps} your comment was deleted`);
-            window.location.reload(false);
+            setComments((comments) => {
+              return comments.filter(
+                (comment) => comment.comment_id !== comment_id
+              );
+            });
           }}
         >
           Delete
@@ -33,7 +37,13 @@ export default function Comments({ article_id }) {
     if (usersFromApps === undefined) {
       return <p>Please log in first</p>;
     } else if (isPostCommentVisible === true) {
-      return <PostComment article_id={article_id} />;
+      return (
+        <PostComment
+          article_id={article_id}
+          comments="comments"
+          setComments={setComments}
+        />
+      );
     }
   };
 
