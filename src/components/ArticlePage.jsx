@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { fetchArticle } from "../api";
+import { fetchArticle, updateVote } from "../api";
 import { Link } from "react-router-dom";
 import Comments from "./Comments";
 
@@ -14,7 +14,7 @@ export default function ArticlePage({ showComments }) {
     showComments = false;
   }
 
-  const [isCommentVisible, setIsCommentVisible] = useState(showComments);
+  const [isCommentVisible, setIsCommentVisible] = useState(true);
 
   const showCommentsFunc = () => {
     if (isCommentVisible === true) {
@@ -74,7 +74,24 @@ export default function ArticlePage({ showComments }) {
           <b>Comments: </b>
           {article.comment_count}
         </button>
-        <b> Votes:</b> <b>&#8679;</b> {article.votes} <b>&#8681;</b>
+        <b> Votes:</b>{" "}
+        <button
+          onClick={() => {
+            updateVote(article.article_id, 1);
+            window.location.reload(false);
+          }}
+        >
+          &#8679;
+        </button>{" "}
+        {article.votes}{" "}
+        <button
+          onClick={() => {
+            updateVote(article.article_id, -1);
+            window.location.reload(false);
+          }}
+        >
+          &#8681;
+        </button>
         {showCommentsFunc()}
       </div>
     </div>

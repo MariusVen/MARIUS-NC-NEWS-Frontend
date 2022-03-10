@@ -1,9 +1,11 @@
 import { useEffect, useState, useContext } from "react";
 import { deleteComment, fetchComments } from "../api";
 import { UserContext } from "./User";
+import PostComment from "./PostComment";
 
 export default function Comments({ article_id }) {
   const [comments, setComments] = useState([]);
+  const [isPostCommentVisible, setIsPostCommentVisible] = useState(false);
   const { usersFromApps } = useContext(UserContext);
 
   useEffect(() => {
@@ -18,7 +20,7 @@ export default function Comments({ article_id }) {
         <button
           onClick={() => {
             deleteComment(comment_id);
-            alert("Comment was deleted");
+            alert(`Dear ${usersFromApps} your comment was deleted`);
             window.location.reload(false);
           }}
         >
@@ -27,9 +29,24 @@ export default function Comments({ article_id }) {
       );
     }
   };
+  const showPostComment = () => {
+    if (usersFromApps === undefined) {
+      return <p>Please log in first</p>;
+    } else if (isPostCommentVisible === true) {
+      return <PostComment article_id={article_id} />;
+    }
+  };
 
   return (
     <div>
+      <button
+        onClick={() => {
+          setIsPostCommentVisible(!isPostCommentVisible);
+        }}
+      >
+        Write comment
+      </button>
+      {showPostComment()}
       {comments.map((comment) => {
         return (
           <div className="comments" key={comment.comment_id}>

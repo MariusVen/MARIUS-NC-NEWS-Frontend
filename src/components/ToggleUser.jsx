@@ -18,7 +18,6 @@ export default function ToggleUser() {
           Log in:
           <input
             onChange={(e) => {
-              console.log(e.target.value);
               setUser(e.target.value);
             }}
           />

@@ -10,7 +10,6 @@ import { UserContext } from "./components/User";
 function App() {
   const [usersFromApps, setUsersFromApps] = useState("tickle122");
 
-  // const user2 = "test5";
   return (
     <BrowserRouter>
       <UserContext.Provider value={{ usersFromApps, setUsersFromApps }}>
@@ -24,7 +23,7 @@ function App() {
             <Route path="/articles/:article_id" element={<ArticlePage />} />
             <Route
               path="/articles/:article_id/comments"
-              element={<ArticlePage showComments={true} />}
+              element={<ArticlePage />}
             />
           </Routes>
         </div>
