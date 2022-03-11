@@ -3,7 +3,6 @@ import Header from "./components/Header";
 import ArticleList from "./components/ArticleList";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ArticlePage from "./components/ArticlePage";
-import ToggleUser from "./components/ToggleUser";
 import { useState } from "react";
 import { UserContext } from "./components/User";
 import ErrorPage from "./components/ErrorPage";
