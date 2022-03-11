@@ -39,9 +39,6 @@ export default function Comments({ article_id }) {
       return <PostComment article_id={article_id} setComments={setComments} />;
     }
   };
-  {
-    let count = 2000;
-  }
   return (
     <div>
       <button
