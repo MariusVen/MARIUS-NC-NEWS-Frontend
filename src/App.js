@@ -6,6 +6,7 @@ import ArticlePage from "./components/ArticlePage";
 import ToggleUser from "./components/ToggleUser";
 import { useState } from "react";
 import { UserContext } from "./components/User";
+import ErrorPage from "./components/ErrorPage";
 
 function App() {
   const [usersFromApps, setUsersFromApps] = useState("tickle122");
@@ -18,6 +19,7 @@ function App() {
           <ToggleUser />
           <Routes>
             <Route exact path="/" element={<ArticleList />} />
+            <Route path="*" element={<ErrorPage />} />
             <Route path="/topics" element={<ArticleList />} />
             <Route path="/topics/:topic" element={<ArticleList />} />
             <Route path="/articles/:article_id" element={<ArticlePage />} />
