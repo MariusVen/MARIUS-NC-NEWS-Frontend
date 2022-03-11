@@ -16,7 +16,6 @@ function App() {
       <UserContext.Provider value={{ usersFromApps, setUsersFromApps }}>
         <div className="App">
           <Header />
-          <ToggleUser />
           <Routes>
             <Route exact path="/" element={<ArticleList />} />
             <Route path="*" element={<ErrorPage />} />

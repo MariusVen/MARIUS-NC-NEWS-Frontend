@@ -1,7 +1,28 @@
 .App {
   text-align: center;
   width: 40%;
-  margin: auto;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  /* margin: auto; */
+  border-style: solid;
+  border-width: thin;
+}
+.Header {
+  border-bottom-style: solid;
+  border-width: thin;
+  background-image: url("https://media.istockphoto.com/photos/blue-wall-texture-picture-id175400834?b=1&k=20&m=175400834&s=170667a&w=0&h=R1InA1GKCO1_SsGdtipJgHxvE033OwaTSE7EN-O_Zjw=");
+  background-color: #cccccc;
+  padding: 10px;
+
+  background-color: rgb(85, 87, 86);
+}
+.header-image {
+  max-width: 100%;
+  height: auto;
+}
+.ToggleUser {
+  text-align: right;
 }
 .article_list {
   background-color: rgb(237, 245, 251);
@@ -32,4 +53,18 @@ h1 {
   border-style: solid;
   padding: 10px;
   margin-top: 20px;
+}
+.title {
+  font-size: 30px;
+  color: white;
+  text-decoration: none;
+}
+
+.sort-list {
+  text-align: right;
+  margin-right: 20px;
+}
+.article-date {
+  text-align: right;
+  margin-right: 20px;
 }

@@ -21,7 +21,7 @@ export default function ToggleUser() {
               setUser(e.target.value);
             }}
           />
-          <button type="submit"> Submit </button>
+          <button type="submit"> Log in </button>
         </label>
       </form>
     );

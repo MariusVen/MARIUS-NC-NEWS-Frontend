@@ -42,12 +42,14 @@ export default function ArticleList() {
 
   return (
     <div>
-      <Sorting
-        sortType={sortType}
-        sortAscDesc={sortAscDesc}
-        setSortType={setSortType}
-        setSortAscDesc={setSortAscDesc}
-      />
+      <div className="sort-list">
+        <Sorting
+          sortType={sortType}
+          sortAscDesc={sortAscDesc}
+          setSortType={setSortType}
+          setSortAscDesc={setSortAscDesc}
+        />
+      </div>
       {articles.map((article) => {
         return <ArticleCard article={article} key={article.article_id} />;
       })}

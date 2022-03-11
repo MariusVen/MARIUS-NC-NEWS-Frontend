@@ -6,6 +6,7 @@ export default function Sorting({
 }) {
   return (
     <div>
+      Sort: &nbsp;
       <select
         value={sortType}
         onChange={(e) => {
@@ -17,7 +18,6 @@ export default function Sorting({
         <option value="votes">by votes</option>
         <option value="title">by title</option>
       </select>
-
       <select
         value={sortAscDesc}
         onChange={(e) => {
