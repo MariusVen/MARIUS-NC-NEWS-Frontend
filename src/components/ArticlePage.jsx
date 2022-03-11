@@ -10,7 +10,6 @@ export default function ArticlePage({ showComments }) {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [vote, setVote] = useState();
-  const [tempId, setTempId] = useState();
 
   if (showComments === undefined) {
     showComments = false;

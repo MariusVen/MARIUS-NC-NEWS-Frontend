@@ -7,6 +7,8 @@ export default function ArticleCard({ article }) {
       </Link>
       <br></br>
       <div className="comment_count">
+        Date: {article.created_at.slice(0, 10)}
+        <br></br>
         <b>{article.comment_count}</b> comments <b>{article.votes}</b> votes
       </div>
     </div>
