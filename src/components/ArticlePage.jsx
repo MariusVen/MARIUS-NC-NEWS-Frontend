@@ -64,6 +64,7 @@ export default function ArticlePage({ showComments }) {
   return (
     <div className="article_page_body">
       <h1>{article.title}</h1>
+      <hr></hr>
       <div>
         <b>Author: </b>
         {article.author} | <b>Topic: </b>
