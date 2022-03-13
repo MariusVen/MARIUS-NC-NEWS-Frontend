@@ -12,13 +12,11 @@ export default function Comments({ article_id }) {
       setComments(articleFromApi);
     });
   }, [article_id]);
-  console.log(comments);
   const authorChecker = (author, comment_id) => {
     if (author === usersFromApps) {
       return (
         <button
           onClick={() => {
-            console.log(comment_id, "comment ID when delete pressed");
             deleteComment(comment_id);
             setComments((comments) => {
               return comments.filter(

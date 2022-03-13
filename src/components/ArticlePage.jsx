@@ -38,7 +38,6 @@ export default function ArticlePage({ showComments }) {
       .then((articleFromApi) => {
         setArticle(articleFromApi);
         setIsLoading(false);
-        console.log(articleFromApi.votes);
         setVote(articleFromApi.votes);
       })
       .catch(
