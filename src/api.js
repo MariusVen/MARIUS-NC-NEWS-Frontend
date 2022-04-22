@@ -1,11 +1,11 @@
 import axios from "axios";
 
-const baseURL = "https://nc-news-example-seminar-3-6.herokuapp.com/api";
+const baseURL = "https://marius-nc-news.herokuapp.com/api";
 
 export const fetchArticles = (topic, sort_by, order) => {
   return axios
     .get(`${baseURL}/articles`, {
-      params: { topic: topic, sort_by: sort_by, order: order },
+      params: { topic: topic, sort_by: sort_by, order_by: order },
     })
     .then(({ data }) => {
       return data.articles;
@@ -49,4 +49,10 @@ export const postComment = (article_id, body, username) => {
     .then(({ data }) => {
       return data.comment;
     });
+};
+
+export const fetchUsers = (user) => {
+  return axios.get(`${baseURL}/users/${user}`).then(({ data }) => {
+    return data.user;
+  });
 };
