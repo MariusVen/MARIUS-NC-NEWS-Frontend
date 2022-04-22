@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseURL = "https://nc-news-example-seminar-3-6.herokuapp.com/api";
+const baseURL = "https://marius-nc-news.herokuapp.com/api";
 
 export const fetchArticles = (topic, sort_by, order) => {
   return axios
