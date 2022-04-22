@@ -6,8 +6,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 MARIUS NC NEWS is a news app, where you can read, add, delete, comment or vote on articles.
 
 
-# Hosted app:
- https://marius-nc-news.netlify.app/
+## Hosted app:
+🧭 https://marius-nc-news.netlify.app/
 
 ## Setup
 
@@ -24,7 +24,9 @@ npm install
 
 In the project directory, you can run:
 
-### `npm start`
+```
+npm start
+```
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
