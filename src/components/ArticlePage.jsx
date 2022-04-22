@@ -10,6 +10,8 @@ export default function ArticlePage({ showComments }) {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [vote, setVote] = useState();
+  const [positiveVote, setPositiveVote] = useState(false);
+  const [negativeVote, setNegativeVote] = useState(false);
 
   if (showComments === undefined) {
     showComments = false;
@@ -84,8 +86,12 @@ export default function ArticlePage({ showComments }) {
         <b> Votes:</b>{" "}
         <button
           onClick={() => {
-            updateVote(article.article_id, 1);
-            updateVotesLocally(1);
+            if (positiveVote === false) {
+              updateVote(article.article_id, 1);
+              updateVotesLocally(1);
+              setPositiveVote(true);
+              setNegativeVote(false);
+            } else alert("Sorry, You already voted!");
           }}
         >
           &#8679;
@@ -93,8 +99,12 @@ export default function ArticlePage({ showComments }) {
         {vote}
         <button
           onClick={() => {
-            updateVote(article.article_id, -1);
-            updateVotesLocally(-1);
+            if (negativeVote === false) {
+              updateVote(article.article_id, -1);
+              updateVotesLocally(-1);
+              setNegativeVote(true);
+              setPositiveVote(false);
+            } else alert("Sorry, You already voted!");
           }}
         >
           &#8681;
