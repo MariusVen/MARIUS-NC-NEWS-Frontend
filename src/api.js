@@ -5,7 +5,7 @@ const baseURL = "https://marius-nc-news.herokuapp.com/api";
 export const fetchArticles = (topic, sort_by, order) => {
   return axios
     .get(`${baseURL}/articles`, {
-      params: { topic: topic, sort_by: sort_by, order: order },
+      params: { topic: topic, sort_by: sort_by, order_by: order },
     })
     .then(({ data }) => {
       return data.articles;
