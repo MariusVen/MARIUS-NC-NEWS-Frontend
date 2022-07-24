@@ -1,46 +1,20 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { fetchArticle, updateVote } from "../api";
-import { Link } from "react-router-dom";
+import { fetchArticle } from "../api";
 import Comments from "./Comments";
+import ArticleCard from "./ArticleCard";
 
-export default function ArticlePage({ showComments }) {
+export default function ArticlePage() {
   const { article_id } = useParams();
   const [article, setArticle] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [vote, setVote] = useState();
-  const [positiveVote, setPositiveVote] = useState(false);
-  const [negativeVote, setNegativeVote] = useState(false);
-
-  if (showComments === undefined) {
-    showComments = false;
-  }
-
-  const [isCommentVisible, setIsCommentVisible] = useState(true);
-
-  const showCommentsFunc = () => {
-    if (isCommentVisible === true) {
-      return <Comments article_id={article_id} />;
-    }
-  };
-
-  const updateVotesLocally = (voteCrement) => {
-    setVote(voteCrement + vote);
-  };
-
-  let date = article.created_at;
-
-  if (date !== undefined) {
-    date = article.created_at.slice(0, 10);
-  }
 
   useEffect(() => {
     fetchArticle(Number(article_id))
       .then((articleFromApi) => {
         setArticle(articleFromApi);
         setIsLoading(false);
-        setVote(articleFromApi.votes);
       })
       .catch(
         ({
@@ -63,54 +37,9 @@ export default function ArticlePage({ showComments }) {
       </h2>
     );
   return (
-    <div className="article_page_body">
-      <h1>{article.title}</h1>
-      <hr></hr>
-      <div>
-        <b>Author: </b>
-        {article.author} | <b>Topic: </b>
-        {article.topic} | <b>Created at: </b>
-        {date}
-      </div>
-      <p>{article.body}</p>
-      <div>
-        <button
-          onClick={() => {
-            setIsCommentVisible(!isCommentVisible);
-          }}
-        >
-          <Link to={`/articles/${article.article_id}/comments`}></Link>
-          <b>Comments: </b>
-          {article.comment_count}
-        </button>
-        <b> Votes:</b>{" "}
-        <button
-          onClick={() => {
-            if (positiveVote === false) {
-              updateVote(article.article_id, 1);
-              updateVotesLocally(1);
-              setPositiveVote(true);
-              setNegativeVote(false);
-            } else alert("Sorry, You already voted!");
-          }}
-        >
-          &#8679;
-        </button>
-        {vote}
-        <button
-          onClick={() => {
-            if (negativeVote === false) {
-              updateVote(article.article_id, -1);
-              updateVotesLocally(-1);
-              setNegativeVote(true);
-              setPositiveVote(false);
-            } else alert("Sorry, You already voted!");
-          }}
-        >
-          &#8681;
-        </button>
-        {showCommentsFunc()}
-      </div>
+    <div>
+      <ArticleCard article={article}></ArticleCard>
+      <Comments article_id={article_id} />
     </div>
   );
 }

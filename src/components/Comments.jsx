@@ -5,7 +5,6 @@ import PostComment from "./PostComment";
 
 export default function Comments({ article_id }) {
   const [comments, setComments] = useState([]);
-  const [isPostCommentVisible, setIsPostCommentVisible] = useState(false);
   const { usersFromApps } = useContext(UserContext);
   useEffect(() => {
     fetchComments(Number(article_id)).then((articleFromApi) => {
@@ -32,21 +31,13 @@ export default function Comments({ article_id }) {
   };
   const showPostComment = () => {
     if (usersFromApps === undefined) {
-      return <p>Please log in first</p>;
-    } else if (isPostCommentVisible === true) {
+      return <p>Please log in to comment </p>;
+    } else {
       return <PostComment article_id={article_id} setComments={setComments} />;
     }
   };
   return (
     <div>
-      <button
-        onClick={() => {
-          setIsPostCommentVisible(!isPostCommentVisible);
-        }}
-      >
-        Write comment
-      </button>
-
       {showPostComment()}
       {comments.map((comment, index) => {
         return (
@@ -54,15 +45,24 @@ export default function Comments({ article_id }) {
             className="comments"
             key={comment.comment_id || `review-${index}`}
           >
-            <b>Author:</b> {comment.author} | <b>Posted at:</b>{" "}
-            {comment.created_at.slice(0, 10)} |{" "}
-            {comment.created_at.slice(11, 16)}
-            <p>{comment.body}</p>
-            {authorChecker(
-              comment.author,
-              comment.comment_id,
-              `review-${index}`
-            )}
+            <div className="comment-header">
+              <div className="comment-header-author">
+                {" "}
+                Posted by {comment.author}
+              </div>{" "}
+              <div className="comment-header-date">
+                &#183; {comment.created_at.slice(0, 10)} |{" "}
+                {comment.created_at.slice(11, 16)}{" "}
+                {authorChecker(
+                  comment.author,
+                  comment.comment_id,
+                  `review-${index}`
+                )}
+              </div>
+            </div>{" "}
+            <div className="comment-body">
+              <p>{comment.body}</p>
+            </div>
           </div>
         );
       })}

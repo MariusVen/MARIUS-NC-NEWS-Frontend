@@ -1,19 +1,17 @@
-import NavigationBar from "./NavigationBar";
 import { Link } from "react-router-dom";
 import ToggleUser from "./ToggleUser";
 
 export default function Header() {
   return (
     <div className="Header">
-      <div className="ToggleUser">
-        <ToggleUser />
-      </div>
-      <div className="title">
+      <div className="header-left-side">
         <Link to="/">
-          <h1>NC NEWS </h1>
+          <h1 className="logo">NC NEWS </h1>
         </Link>
       </div>
-      <NavigationBar />
+      <div className="header-right-side">
+        <ToggleUser />
+      </div>
     </div>
   );
 }

@@ -6,19 +6,20 @@ export default function Sorting({
 }) {
   return (
     <div>
-      Sort: &nbsp;
       <select
+        className="select"
         value={sortType}
         onChange={(e) => {
           setSortType(e.target.value);
         }}
       >
-        <option value="created_at">by date</option>
-        <option value="comment_count">by comment count</option>
-        <option value="votes">by votes</option>
-        <option value="title">by title</option>
+        <option value="created_at">date</option>
+        <option value="comment_count">comment count</option>
+        <option value="votes">votes</option>
+        <option value="title">title</option>
       </select>
       <select
+        className="select"
         value={sortAscDesc}
         onChange={(e) => {
           setSortAscDesc(e.target.value);

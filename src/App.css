@@ -1,49 +1,264 @@
 .App {
   text-align: center;
-  width: 40%;
-  margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
-  /* margin: auto; */
-  border-style: solid;
-  border-width: thin;
+  padding-bottom: 25px;
+  background-color: #dae0e6;
 }
 .Header {
+  position: sticky;
+  top: 0;
+  z-index: 999;
   border-bottom-style: solid;
   border-width: thin;
-  background-image: url("https://cdn.pixabay.com/photo/2020/01/19/21/40/illustration-4779065_960_720.jpg");
-  background-color: #cccccc;
-  padding: 10px;
-
-  background-color: rgb(85, 87, 86);
-}
-.header-image {
-  max-width: 100%;
-  height: auto;
-}
-.ToggleUser {
-  text-align: right;
-}
-.article_list {
-  background-color: rgb(237, 245, 251);
-  border-style: outset;
-  padding: 10px;
-  margin: 10px;
+  border-color: #e3e5e8;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  height: 50px;
+  width: 100%;
 }
 
-.comment_count {
+.header-left-side {
+  width: 50%;
+}
+.logo {
+  width: 150px;
+  height: 40px;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  background-image: url(./pictures/NC-news-logo.jpg);
+  background-size: cover;
+  margin-left: 20px;
+}
+
+.header-right-side {
+  width: 50%;
   text-align: right;
   margin-right: 20px;
+}
+.front-page-body {
+  display: flex;
+
+  background-color: white;
+  border-style: solid;
+  border-width: thin;
+  border-color: #f6f7f8;
+  border-radius: 5px;
+  max-width: 640px;
+  margin: auto;
+  margin-top: 10px;
+}
+
+.front-page-body:hover {
+  border-color: #6c6e70;
+}
+.vote {
+  width: 7%;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  background-color: #f6f7f8;
+}
+.green-arrow {
+  background-color: #f6f7f8;
+  font-size: 1.5em;
+  width: 100%;
+  border-style: none;
+  border-top-left-radius: 4px;
+}
+.green-arrow:hover {
+  border-style: none;
+  background-color: #edeeef;
+
+  color: green;
+}
+.green-arrow:active {
+  color: black;
+}
+.red-arrow {
+  background-color: #f6f7f8;
+  font-size: 1.5em;
+  width: 100%;
+  border-style: none;
+}
+.red-arrow:hover {
+  background-color: #edeeef;
+  color: red;
+}
+.red-arrow:active {
+  color: black;
+}
+
+.front-page-article-card {
+  width: 93%;
+  text-align: left;
+}
+.front-page-article-card-header {
+  display: flex;
+  margin: 8px;
+}
+.front-page-article-card-header-topic {
+  font-size: 12px;
+  text-align: left;
+  color: #1c1c1c;
+
+  margin: 3px 4px 0px 4px;
+}
+.front-page-article-card-header-topic:link {
+  text-decoration: none;
+}
+
+.front-page-article-card-header-topic:hover {
+  text-decoration: underline;
+}
+
+.front-page-article-card-header-logo-coding {
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  background-image: url(./pictures/coding-logo.jpg);
+  background-size: cover;
+}
+
+.front-page-article-card-header-logo-cooking {
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  background-image: url(./pictures/cooking-logo.jpg);
+  background-size: cover;
+}
+.front-page-article-card-header-logo-football {
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  background-image: url(./pictures/football-logo.jpg);
+  background-size: cover;
+}
+
+.front-page-article-card-header-author {
+  font-size: 12px;
+  color: #6c6e70;
+  margin: 3px 0px 0px 0px;
+}
+.front-page-article-card-body-title {
+  margin: 10px 8px 10px 8px;
+  text-align: left;
+  font-weight: bold;
+  font-size: 18px;
+  color: #222222;
+}
+
+.front-page-article-card-body-title-link {
+  color: #222222;
+}
+.front-page-article-card-body-title-link:link {
+  text-decoration: none;
+}
+.article-list-article-comment {
+  margin: 10px 8px 10px 8px;
+}
+
+.front-page-article-card-body {
+  text-align: justify;
+  font-size: 14px;
+  margin: 0px 8px 8px 8px;
+}
+.front-page-article-card-body-link:link {
+  color: rgb(62, 60, 60);
+  text-decoration: none;
+}
+.front-page-article-card-body-link:visited {
+  color: rgb(62, 60, 60);
+}
+
+.topics {
+  display: flex;
+  max-width: 660px;
+  margin: auto;
+}
+
+.individual-topic {
+  text-decoration: none;
+  border-style: solid;
+  color: white;
+  height: 120px;
+  border-radius: 5px;
+  width: 33.333%;
+  margin: 20px 5px 0px 5px;
+}
+.individual-topic:hover {
+  border-color: #96ccf6;
+}
+.individual-topic:active {
+  border-color: white;
+}
+
+.individual-topic-coding {
+  background: linear-gradient(to bottom, transparent, black),
+    url("/src/pictures/coding.jpg");
+  background-size: cover;
+}
+
+.individual-topic-cooking {
+  background: linear-gradient(to bottom, transparent, black),
+    url("/src/pictures/cooking.jpg");
+  background-size: cover;
+}
+.individual-topic-football {
+  background: linear-gradient(to bottom, transparent, black),
+    url("/src/pictures/football.jpg");
+
+  background-size: cover;
+}
+.individual-topic-link {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 85px;
+}
+.individual-topic-link:hover {
+  text-decoration: none;
+}
+
+.front-page-article-card-footer {
+  display: flex;
+  margin-bottom: 8px;
+  margin-left: 4px;
+}
+.front-page-article-card-footer-comment-logo {
+  margin-left: 8px;
+  margin-top: 3px;
+  width: 19px;
+  height: 20px;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  background-image: url(./pictures/comment-logo.jpg);
+  background-size: cover;
+}
+.front-page-article-card-footer-comment {
+  margin-left: 4px;
+
+  color: #868a8d;
+}
+.front-page-article-card-footer-comment:link {
+  text-decoration: none;
+  margin-bottom: 30px;
 }
 
 @media screen and (max-width: 800px) {
   .App {
-    width: 90%;
+    width: 100%;
   }
-}
-.article_page_body {
-  text-align: justify;
-  padding: 20px;
 }
 
 h1 {
@@ -51,22 +266,110 @@ h1 {
 }
 
 .comments {
+  max-width: 640px;
+  margin: auto;
   border-style: solid;
-  padding: 10px;
-  margin-top: 20px;
+  border-radius: 5px;
+  border-width: thin;
+  border-color: #f6f7f8;
+  background-color: white;
+  margin-top: 10px;
 }
-.title {
-  font-size: 30px;
-  color: white;
-  text-decoration: none;
+.comments:hover {
+  border-color: #6c6e70;
+}
+.comment-header {
+  display: Flex;
+  margin: 8px;
+}
+.comment-header-author {
+  font-size: 12px;
+  color: #1c1c1c;
+  margin: 3px 0px 0px 0px;
+}
+.comment-header-date {
+  font-size: 12px;
+  color: #6c6e70;
+  margin: 3px 0px 0px 3px;
+}
+.comment-body {
+  text-align: justify;
+  font-size: 14px;
+  margin: 0px 8px 8px 8px;
+}
+.comment-box {
+  margin-top: 200px;
+  background-color: white;
+  border-width: thin;
+  border-color: #a8adb3;
+  border-radius: 5px;
+  border-style: solid;
+  margin: auto;
+  max-width: 640px;
 }
 
+.comment-box-field {
+  max-width: 640px;
+  height: 150px;
+  border-width: thin;
+  border-color: #e3e5e8;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-style: solid;
+  border-bottom-color: #a8adb3;
+}
+input[type="text"] {
+  padding-bottom: 120px;
+  padding-left: 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.comment-box-field:hover {
+  border-color: #6c6e70;
+}
+.comment-box-button {
+  max-width: 630px;
+  margin: 5px;
+  background-color: #46a8f3;
+  border-width: thin;
+  border-color: #96ccf6;
+  border-radius: 5px;
+  border-style: solid;
+  color: white;
+}
+
+.comment-box-button:active {
+  border-color: #6c6e70;
+}
 .sort-list {
-  text-align: right;
-  margin-right: 15px;
-  padding-top: 10px;
+  border-color: #e3e5e8;
+  border-style: solid;
+  border-width: thin;
+  border-radius: 5px;
+  background-color: white;
+  max-width: 640px;
+  text-align: left;
+  padding: 10px 0px 10px 0px;
+  margin: auto;
+  margin-top: 20px;
 }
 .article-date {
   text-align: right;
   margin-right: 20px;
+}
+
+.select {
+  background-color: #f6f7f8;
+  border-color: white;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  color: #0079d3;
+  border-radius: 20px;
+  padding: 10px 12px;
+  margin-left: 15px;
+}
+
+.select:after {
+  border-color: blue;
 }

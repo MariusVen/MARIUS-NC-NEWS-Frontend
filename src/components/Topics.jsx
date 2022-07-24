@@ -9,11 +9,14 @@ export default function Topics() {
     fetchTopics().then((topicsFromApi) => setTopics(topicsFromApi));
   }, []);
   return (
-    <div>
+    <div className="topics">
       {topics.map((topic) => (
-        <button key={topic.slug}>
-          <Link to={`/topics/${topic.slug}`}>{topic.slug}</Link>
-        </button>
+        <Link
+          className={`individual-topic-${topic.slug} individual-topic`}
+          to={`/topics/${topic.slug}`}
+        >
+          <div className="individual-topic-link">{topic.slug}</div>
+        </Link>
       ))}
     </div>
   );

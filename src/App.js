@@ -6,6 +6,7 @@ import ArticlePage from "./components/ArticlePage";
 import { useState } from "react";
 import { UserContext } from "./components/User";
 import ErrorPage from "./components/ErrorPage";
+import NavigationBar from "./components/NavigationBar";
 
 function App() {
   const [usersFromApps, setUsersFromApps] = useState("tickle122");
@@ -15,6 +16,7 @@ function App() {
       <UserContext.Provider value={{ usersFromApps, setUsersFromApps }}>
         <div className="App">
           <Header />
+          <NavigationBar />
           <Routes>
             <Route exact path={"/"} element={<ArticleList />} />
             <Route path={"*"} element={<ErrorPage />} />
