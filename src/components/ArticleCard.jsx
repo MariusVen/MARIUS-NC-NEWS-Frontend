@@ -9,8 +9,8 @@ export default function ArticleCard({ article }) {
   const [positiveVote, setPositiveVote] = useState(false);
   const [negativeVote, setNegativeVote] = useState(false);
 
-  const updateVotesLocally = (voteCrement) => {
-    setVote(voteCrement + vote);
+  const updateVotesLocally = (voteIncrement) => {
+    setVote(voteIncrement + vote);
   };
 
   useEffect(() => {
