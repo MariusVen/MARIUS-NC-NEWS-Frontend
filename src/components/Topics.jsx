@@ -10,9 +10,10 @@ export default function Topics() {
   }, []);
   return (
     <div className="topics">
-      {topics.map((topic) => (
+      {topics.map((topic, index) => (
         <Link
           className={`individual-topic-${topic.slug} individual-topic`}
+          key={`topic-${index}`}
           to={`/topics/${topic.slug}`}
         >
           <div className="individual-topic-link">{topic.slug}</div>
