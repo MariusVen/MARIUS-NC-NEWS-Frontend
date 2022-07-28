@@ -3,21 +3,20 @@ import { useState, useEffect } from "react";
 import { updateVote } from "../api";
 import { fetchArticle } from "../api";
 export default function ArticleCard({ article }) {
-  const [vote, setVote] = useState();
+  const [voteCountFromApi, setVoteCountFromApi] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [positiveVote, setPositiveVote] = useState(false);
-  const [negativeVote, setNegativeVote] = useState(false);
+  const [voteStatus, setVoteStatus] = useState(0);
 
   const updateVotesLocally = (voteIncrement) => {
-    setVote(voteIncrement + vote);
+    setVoteCountFromApi(voteIncrement + voteCountFromApi);
   };
 
   useEffect(() => {
     fetchArticle(Number(article.article_id))
       .then((articleFromApi) => {
         setIsLoading(false);
-        setVote(articleFromApi.votes);
+        setVoteCountFromApi(articleFromApi.votes);
       })
       .catch(
         ({
@@ -39,32 +38,39 @@ export default function ArticleCard({ article }) {
         {error.status}: {error.msg}
       </h2>
     );
+
   return (
     <div className="front-page-body">
       <div className="vote">
         <button
-          className="green-arrow"
+          className={`green-arrow green-arrow-${voteStatus} `}
           onClick={() => {
-            if (positiveVote === false) {
+            if (voteStatus === 0) {
               updateVote(article.article_id, 1);
               updateVotesLocally(1);
-              setPositiveVote(true);
-              setNegativeVote(false);
-            } else alert("Sorry, You have already voted!");
+              setVoteStatus(1);
+            } else if (voteStatus === -1) {
+              updateVote(article.article_id, 1);
+              updateVotesLocally(1);
+              setVoteStatus(0);
+            }
           }}
         >
           &#8679;
         </button>
-        {vote}{" "}
+        {voteCountFromApi}{" "}
         <button
-          className="red-arrow"
+          className={`red-arrow red-arrow-${voteStatus}`}
           onClick={() => {
-            if (negativeVote === false) {
+            if (voteStatus === 0) {
+              setVoteStatus(-1);
               updateVote(article.article_id, -1);
               updateVotesLocally(-1);
-              setNegativeVote(true);
-              setPositiveVote(false);
-            } else alert("Sorry, You have already voted!");
+            } else if (voteStatus === 1) {
+              setVoteStatus(0);
+              updateVote(article.article_id, -1);
+              updateVotesLocally(-1);
+            }
           }}
         >
           &#8681;

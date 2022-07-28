@@ -60,6 +60,7 @@
   border-bottom-left-radius: 5px;
   background-color: #f6f7f8;
 }
+
 .green-arrow {
   background-color: #f6f7f8;
   font-size: 1.5em;
@@ -67,11 +68,18 @@
   border-style: none;
   border-top-left-radius: 4px;
 }
+.green-arrow-1 {
+  color: green;
+  background-color: #edeeef;
+  font-size: 1.5em;
+  width: 100%;
+  border-style: none;
+  border-top-left-radius: 4px;
+}
 .green-arrow:hover {
+  color: green;
   border-style: none;
   background-color: #edeeef;
-
-  color: green;
 }
 .green-arrow:active {
   color: black;
@@ -82,10 +90,18 @@
   width: 100%;
   border-style: none;
 }
+.red-arrow--1 {
+  background-color: #edeeef;
+  color: red;
+  font-size: 1.5em;
+  width: 100%;
+  border-style: none;
+}
 .red-arrow:hover {
   background-color: #edeeef;
   color: red;
 }
+
 .red-arrow:active {
   color: black;
 }
