@@ -9,9 +9,7 @@ export default function Header() {
           <h1 className="logo">NC NEWS </h1>
         </Link>
       </div>
-      <div className="header-right-side">
-        <ToggleUser />
-      </div>
+      <ToggleUser />
     </div>
   );
 }

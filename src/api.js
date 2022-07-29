@@ -50,3 +50,9 @@ export const postComment = (article_id, body, username) => {
       return data.comment;
     });
 };
+
+export const fetchUser = (username) => {
+  return axios.get(`${baseURL}/users/${username}`).then(({ data }) => {
+    return data;
+  });
+};
