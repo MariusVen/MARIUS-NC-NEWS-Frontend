@@ -56,3 +56,8 @@ export const fetchUser = (username) => {
     return data;
   });
 };
+export const fetchUsers = () => {
+  return axios.get(`${baseURL}/users/`).then(({ data }) => {
+    return data;
+  });
+};

@@ -7,6 +7,7 @@ import { useState } from "react";
 import { UserContext } from "./components/User";
 import ErrorPage from "./components/ErrorPage";
 import NavigationBar from "./components/NavigationBar";
+import Login from "./components/Login";
 
 function App() {
   const [usersFromApps, setUsersFromApps] = useState("tickle122");
@@ -23,6 +24,7 @@ function App() {
             <Route path={"/topics"} element={<ArticleList />} />
             <Route path={"/topics/:topic"} element={<ArticleList />} />
             <Route path={"/articles/:article_id"} element={<ArticlePage />} />
+            <Route path={"/login/"} element={<Login />} />
             <Route
               path="/articles/:article_id/comments"
               element={<ArticlePage />}
