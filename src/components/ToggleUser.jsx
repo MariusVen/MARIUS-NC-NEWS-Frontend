@@ -44,10 +44,12 @@ export default function ToggleUser() {
           alt="user avatar"
         ></img>
       </div>{" "}
-      <div className="header-right-side-text">
-        {usersFromApps}
+      <div className="header-right-side-text-and-button">
+        <div className="header-right-side-text">{usersFromApps}</div>
         <Link to={"/switchUser/"}>
-          <button onClick={() => {}}>switch</button>
+          <button className="header-right-side-button" onClick={() => {}}>
+            switch
+          </button>
         </Link>
       </div>
     </div>
