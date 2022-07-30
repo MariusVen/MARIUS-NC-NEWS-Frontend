@@ -46,7 +46,7 @@ export default function ToggleUser() {
       </div>{" "}
       <div className="header-right-side-text">
         {usersFromApps}
-        <Link to={"/login/"}>
+        <Link to={"/switchUser/"}>
           <button onClick={() => {}}>switch</button>
         </Link>
       </div>

@@ -411,3 +411,53 @@ input[type="text"] {
 .select:after {
   border-color: blue;
 }
+.switch-user-page {
+  max-width: 640px;
+  max-height: 100%;
+  background-color: white;
+  border-style: solid;
+  border-width: thin;
+  border-color: #f6f7f8;
+  border-radius: 5px;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+}
+.switch-user-page-grid {
+  display: grid;
+  margin-left: auto;
+  margin-right: auto;
+  grid-template-columns: auto auto auto;
+}
+.switch-user-page-single-grid {
+  margin: 10px;
+}
+.switch-user-page-single-grid-user-image {
+  max-width: 100%;
+  height: 100px;
+  margin-top: 10px;
+}
+.switch-user-page-single-grid-choose-user-button {
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 10px;
+}
+.switch-user-page-single-grid-choose-user-button {
+  background-color: white;
+  border-color: #bbbdbf;
+  border-style: solid;
+  border-width: thin;
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 10px;
+}
+
+.switch-user-page-single-grid-choose-user-button:hover {
+  border-color: #6c6e70;
+}
+.switch-user-page-single-grid-choose-user-button:active {
+  border-color: #4ba1f7;
+}
