@@ -1,4 +1,5 @@
 export default function Sorting({
+  topic,
   sortType,
   sortAscDesc,
   setSortAscDesc,
@@ -7,7 +8,7 @@ export default function Sorting({
   return (
     <div>
       <select
-        className="select"
+        className={`select select-${topic}`}
         value={sortType}
         onChange={(e) => {
           setSortType(e.target.value);
@@ -19,7 +20,7 @@ export default function Sorting({
         <option value="title">title</option>
       </select>
       <select
-        className="select"
+        className={`select select-${topic}`}
         value={sortAscDesc}
         onChange={(e) => {
           setSortAscDesc(e.target.value);

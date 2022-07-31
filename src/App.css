@@ -71,9 +71,10 @@
   text-align: right;
 }
 .header-right-side-user-logo-image {
-  max-height: 45px;
-  width: 45px;
+  max-height: 40px;
+  width: 40px;
   margin-top: 5px;
+  padding: 2px;
   border-style: solid;
   border-width: thin;
   border-radius: 50%;
@@ -200,7 +201,12 @@
   background-image: url(./pictures/football-logo.jpg);
   background-size: cover;
 }
-
+.sorting-bar-topic-logo {
+  width: 35px;
+  height: 35px;
+  margin-left: 12px;
+  margin-top: 3px;
+}
 .front-page-article-card-header-author {
   font-size: 12px;
   color: #6c6e70;
@@ -264,7 +270,15 @@
     url("/src/pictures/coding.jpg");
   background-size: cover;
 }
-
+.individual-topic-coding:hover {
+  border-color: pink;
+}
+.individual-topic-football:hover {
+  border-color: green;
+}
+.individual-topic-cooking:hover {
+  border-color: #0079d3;
+}
 .individual-topic-cooking {
   background: linear-gradient(to bottom, transparent, black),
     url("/src/pictures/cooking.jpg");
@@ -409,6 +423,15 @@ input[type="text"] {
   margin: auto;
   margin-top: 20px;
 }
+.sort-list-coding {
+  border-color: #ff68a5;
+}
+.sort-list-football {
+  border-color: green;
+}
+.sort-list-cooking {
+  border-color: #0079d3;
+}
 .article-date {
   text-align: right;
   margin-right: 20px;
@@ -425,10 +448,16 @@ input[type="text"] {
   padding: 10px 12px;
   margin-left: 15px;
 }
-
-.select:after {
-  border-color: blue;
+.select-coding {
+  color: #ff68a5;
 }
+.select-football {
+  color: green;
+}
+.select-cooking {
+  color: #0079d3;
+}
+
 .switch-user-page {
   max-width: 640px;
   max-height: 100%;

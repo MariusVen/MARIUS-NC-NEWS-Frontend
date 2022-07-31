@@ -42,13 +42,18 @@ export default function ArticleList() {
 
   return (
     <div>
-      <div className="sort-list">
-        <Sorting
-          sortType={sortType}
-          sortAscDesc={sortAscDesc}
-          setSortType={setSortType}
-          setSortAscDesc={setSortAscDesc}
-        />
+      <div className={`sort-list sort-list-${topic}`}>
+        {/* <div className={`front-page-article-card-header-logo-${topic} `}></div> */}
+
+        <div>
+          <Sorting
+            topic={topic}
+            sortType={sortType}
+            sortAscDesc={sortAscDesc}
+            setSortType={setSortType}
+            setSortAscDesc={setSortAscDesc}
+          />
+        </div>
       </div>
       {articles.map((article) => {
         return <ArticleCard article={article} key={article.article_id} />;
